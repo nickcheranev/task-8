@@ -1,0 +1,11 @@
+spring:
+  shell:
+    interactive:
+      enabled: true
+  banner:
+    # Файл баннера
+    location: banner.txt
+  output:
+    ansi:
+      # Цветной вывод в консоль
+      enabled: ALWAYS
