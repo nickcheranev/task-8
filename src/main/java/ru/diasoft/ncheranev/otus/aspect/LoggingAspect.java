@@ -6,6 +6,8 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
+
 import static java.util.Objects.nonNull;
 
 /**
@@ -22,7 +24,7 @@ public class LoggingAspect {
         var arguments = joinPoint.getArgs();
         log.debug("Вызван метод: {}", signature);
         if (nonNull(arguments) && arguments.length > 0) {
-            log.debug("Аргументы: {}", arguments);
+            log.debug("Аргументы: {}", Arrays.stream(arguments).map(Object::toString).toList());
         }
         var result = joinPoint.proceed();
         log.debug("Выполнен метод: {}", signature);
